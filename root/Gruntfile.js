@@ -54,8 +54,8 @@ module.exports = function(grunt) {
         separator: ";",
       },
       ugly: {
-        src: ["bower_components/almond/almond.js", "dist/js/dist.js"],
-        dest: "dist/js/final.js"
+        src: ["bower_components/almond/almond.js", "dist/js/app.js"],
+        dest: "dist/js/dist.js"
       },
       plain: {
         src: ["bower_components/almond/almond.js", "dist/js/app.js"],
