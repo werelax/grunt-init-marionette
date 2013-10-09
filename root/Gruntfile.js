@@ -44,7 +44,7 @@ module.exports = function(grunt) {
           name: "app",
           mainConfigFile: "src/config.js",
           insertRequire: ["app"],
-          out: "dist/js/app.js",
+          out: "build/js/app.js",
           optimize: "none"
         }
       }
@@ -54,22 +54,22 @@ module.exports = function(grunt) {
         separator: ";",
       },
       ugly: {
-        src: ["bower_components/almond/almond.js", "dist/js/app.js"],
-        dest: "dist/js/dist.js"
+        src: ["bower_components/almond/almond.js", "build/js/app.js"],
+        dest: "build/js/build.js"
       },
       plain: {
-        src: ["bower_components/almond/almond.js", "dist/js/app.js"],
-        dest: "dist/js/final.js"
+        src: ["bower_components/almond/almond.js", "build/js/app.js"],
+        dest: "build/js/final.js"
       }
     },
     uglify: {
       all: {
         files: {
-          "dist/js/final.js": ["dist/js/dist.js"]
+          "build/js/final.js": ["build/js/build.js"]
         }
       }
     },
-    clean: ["dist/js/dist.js", "dist/js/app.js"],
+    clean: ["build/js/build.js", "build/js/app.js"],
     watch: {
       templates: {
         files: ["src/js/templates/**/*.hbc"],
@@ -85,6 +85,12 @@ module.exports = function(grunt) {
           spawn: false
         }
       }
+    },
+    copy: {
+      css: {
+        src: "src/assets/*",
+        dest: "build/"
+      }
     }
   });
 
@@ -96,8 +102,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-clean");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-copy");
 
-  grunt.registerTask("default", ["jshint", "bower", "handlebars", "requirejs", "concat:plain", "clean"]);
-  grunt.registerTask("build", ["jshint", "bower", "handlebars", "requirejs", "concat:ugly", "uglify", "clean"]);
+  grunt.registerTask("default", ["jshint", "bower", "handlebars", "requirejs", "concat:plain", "clean", "copy"]);
+  grunt.registerTask("build", ["jshint", "bower", "handlebars", "requirejs", "concat:ugly", "uglify", "clean", "copy"]);
 
 };
