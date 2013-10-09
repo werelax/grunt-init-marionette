@@ -111,8 +111,6 @@ module.exports = function(grunt) {
     var connect = require("connect"),
         done = this.async(),
         dir = (mode === "build") ? "/build" : "/src";
-
-    grunt.task.run("watch");
     connect()
       .use(connect.logger("dev"))
       .use(connect.static(__dirname + dir))
