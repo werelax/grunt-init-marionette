@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     bower: {
       target: {
-        rjsConfig: "src/config.js",
+        rjsConfig: "src/js/config.js",
         options: {
           baseUrl: "src/js",
           exclude: ["almond"]
@@ -42,7 +42,7 @@ module.exports = function(grunt) {
       compile: {
         options: {
           name: "app",
-          mainConfigFile: "src/config.js",
+          mainConfigFile: "src/js/config.js",
           insertRequire: ["app"],
           out: "build/js/app.js",
           optimize: "none"
