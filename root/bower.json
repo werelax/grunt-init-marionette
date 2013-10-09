@@ -18,6 +18,7 @@
     "jquery": "~2.0.3"
   },
   "devDependencies": {
-    "almond": "~0.2.6"
+    "almond": "~0.2.6",
+    "handlebars": "~1.0.0"
   }
 }
