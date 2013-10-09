@@ -107,4 +107,17 @@ module.exports = function(grunt) {
   grunt.registerTask("default", ["jshint", "bower", "handlebars", "requirejs", "concat:plain", "clean", "copy"]);
   grunt.registerTask("build", ["jshint", "bower", "handlebars", "requirejs", "concat:ugly", "uglify", "clean", "copy"]);
 
+  grunt.registerTask("server", function(mode) {
+    var connect = require("connect"),
+        done = this.async(),
+        dir = (mode === "build") ? "/build" : "/src";
+
+    grunt.task.run("watch");
+    connect()
+      .use(connect.logger("dev"))
+      .use(connect.static(__dirname + dir))
+      .listen(3000);
+    grunt.log.writeln("Server listening in http://localhost:3000");
+  });
+
 };
