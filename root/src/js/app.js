@@ -11,6 +11,7 @@ define(["marionette", "backbone", "jquery"], function(Marionette, Backbone, $) {
 
   App.on("initialize:after", function() {
     Backbone.history.start();
+    console.log(" --> App ready");
   });
 
   $(App.start.bind(App));

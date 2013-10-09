@@ -20,7 +20,7 @@ module.exports = function(grunt) {
         rjsConfig: "src/js/config.js",
         options: {
           baseUrl: "src/js",
-          exclude: ["almond"]
+          exclude: ["almond", "requirejs"]
         }
       },
     },
@@ -87,8 +87,10 @@ module.exports = function(grunt) {
       }
     },
     copy: {
-      css: {
-        src: "src/assets/*",
+      assets: {
+        expand: true,
+        cwd: "src",
+        src: "assets/**",
         dest: "build/"
       }
     }
@@ -114,6 +116,7 @@ module.exports = function(grunt) {
     connect()
       .use(connect.logger("dev"))
       .use(connect.static(__dirname + dir))
+      .use(connect.static(__dirname))
       .listen(3000)
       .on("error", done.bind({}, false));
     grunt.log.writeln("Server listening in http://localhost:3000");
