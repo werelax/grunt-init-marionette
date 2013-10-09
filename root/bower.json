@@ -1,0 +1,23 @@
+{
+  "name": "TestApp",
+  "version": "0.0.0",
+  "description": "Nice test app",
+  "main": "js/app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "marionette": "~1.1.0",
+    "requirejs": "~2.1.8",
+    "jquery": "~2.0.3"
+  },
+  "devDependencies": {
+    "almond": "~0.2.6"
+  }
+}
