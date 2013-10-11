@@ -72,7 +72,7 @@ module.exports = function(grunt) {
     clean: ["build/js/build.js", "build/js/app.js"],
     watch: {
       templates: {
-        files: ["src/js/templates/**/*.hbc"],
+        files: ["src/js/templates/{,*/}*.hbc"],
         tasks: ["handlebars"],
         options: {
           spawn: false
